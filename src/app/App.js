@@ -32,7 +32,7 @@ function App() {
             } />
             <Route path="/login" element={<Login />} />
             <Route path="/teste" element={<h1>teste</h1>} />
-
+            <Route path="/postagem" element={<h1>postagem</h1>} />
           </Routes>
         </main>
         <Footer />
