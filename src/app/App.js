@@ -31,6 +31,7 @@ function App() {
               </PrivateRoute>
             } />
             <Route path="/login" element={<Login />} />
+            <Route path="/teste" element={<h1>teste</h1>} />
 
           </Routes>
         </main>
