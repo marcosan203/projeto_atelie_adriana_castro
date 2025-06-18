@@ -8,6 +8,7 @@ import Painel from "../pages/Painel";
 import Login from "../pages/Login";
 import PrivateRoute from "../components/Auth";
 
+
 function App() {
   
   
