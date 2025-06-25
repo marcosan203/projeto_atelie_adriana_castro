@@ -1,12 +1,16 @@
+import React from 'react';
 import Brand from '../Brand';
 import './style.css'
 
 function Banner() {
     return(
-        <section className="Banner atelie-banner-img w-full h-[80%] flex">
+        <div className="absolute inset-0 bg-black opacity-30">
+        <section className="Banner atelie-banner-img relative w-full h-[100%]  flex">
            <Brand />
 
         </section>
+        </div>
+        
     )
 }
 

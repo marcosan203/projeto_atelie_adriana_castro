@@ -1,5 +1,6 @@
 .atelie-banner-img {
-    background-image: url('../../../public/icons/icon_network.svg');
+    background-image: url('../../../public/imagens_usadas_na_pagina/image.png');
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }

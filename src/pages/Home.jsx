@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import NossaHistoria from "../components/NossaHistoria";
 import Orcamento from "../components/Orcamento";
 
+
 function Home() {
     const services = useMemo(() => [
         {image: '/icons/icon_network.svg', title: 'Otimize sua infraestrutura', texto: 'Soluções avancadas de infraestrutura, gerencimaneto dos recursos de rede proporcionando eficiencia seguranca e escalabilidade'},
@@ -15,7 +16,7 @@ function Home() {
         
       ],[])
     return(
-        <div className="mx-auto flex-grow">
+        <div className="relative mx-auto flex-grow">
            <Banner />
            <NossaHistoria />
            <Orcamento/>
