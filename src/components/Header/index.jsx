@@ -12,7 +12,7 @@ const Header = () => {
   const navigate = useNavigate();
 
     return(
-      <header className="flex flex-col h-[120px] w-full ">
+      <header className="flex flex-col h-[120px] w-full">
         <div className="flex-1 w-full bg-black flex px-[100px]">
           <div className="flex-1 flex justify-start">
             <ul>
