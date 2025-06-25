@@ -33,11 +33,11 @@ const Header = () => {
           <div>
             <p></p>
           </div>
-          <div>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+          <div className="flex-1 flex justify-end">
+          <ul className="flex gap-6 items-center text-black">
+            <li><a href="nossa-historia">Nossa História</a></li>
+            <li><a href="servicos">Serviços</a></li>
+            <li><a href="orcamentos">Orçamentos</a></li>
           </ul>
           </div>
          
