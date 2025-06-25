@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import Card from "../components/Card";
 import Banner from "../components/Banner";
 import NossaHistoria from "../components/NossaHistoria";
+import Orcamento from "../components/Orcamento";
 
 function Home() {
     const services = useMemo(() => [
@@ -17,6 +18,7 @@ function Home() {
         <div className="mx-auto flex-grow">
            <Banner />
            <NossaHistoria />
+           <Orcamento/>
         </div>
     )
 }
