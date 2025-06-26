@@ -4,13 +4,9 @@ import './style.css'
 
 function Banner() {
     return(
-        <div className="absolute inset-0 bg-black opacity-30">
-        <section className="Banner atelie-banner-img relative w-full h-[100%]  flex">
+        <section className="Banner atelie-banner-img rounded-lg relative w-full h-[850px] mb-[50px]">
            <Brand />
-
         </section>
-        </div>
-        
     )
 }
 

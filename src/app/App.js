@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <div className="Content flex min-h-screen flex-col">
         <Header/>
-        <main className="flex flex-grow container mx-auto p-4 mt-[100px] px-[100px]">
+        <main className="flex flex-grow px-[100px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/painel" element={
@@ -28,7 +28,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        
       </div>
     </BrowserRouter>
   );
