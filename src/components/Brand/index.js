@@ -1,18 +1,15 @@
 function Brand() {
     return(
-        <a href="#home">
-            <div className='Banner-text w-full  h-[45px] mt-[-40px] '>
-                <h2 className='  text-black'>
-                    Atelie
-                </h2>
-                <h2 className=' text-white'>
-                    Adriana 
-                    Castro
-                </h2>
-                
-            </div>
-            </a>
-
+        <a href="#home" className="Brand absolute text-[45px] tracking-[10px] leading-[1] -top-11 left-10">
+            <h2 className='text-black'>
+                Ateliê
+            </h2>
+            <h2 className='text-white '>
+                Adriana
+                <br />
+                Castro
+            </h2>
+        </a>
     )
 }
 
