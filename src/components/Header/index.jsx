@@ -13,7 +13,7 @@ const Header = () => {
 
     return(
       <header className="flex flex-col h-[120px] w-full">
-        <div className="flex-1 w-full bg-black flex px-[100px]">
+        <div className="flex-1 w-full bg-black flex px-[130px]">
           <div className="flex-1 flex justify-start">
             <nav>
               <a href="">
@@ -40,8 +40,8 @@ const Header = () => {
           <div>
             <p></p>
           </div>
-          <div className="flex-1 flex justify-end">
-          <ul className="flex gap-6 items-center text-[20px] text-black">
+          <div className="flex-1 flex px-[30px] justify-end">
+          <ul className="flex  gap-6 items-center text-[20px] text-black">
             <li><a href="nossa-historia">Nossa História</a></li>
             <li><a href="servicos">Serviços</a></li>
             <li><a href="orcamentos">Orçamentos</a></li>
