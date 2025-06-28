@@ -16,7 +16,11 @@ function App() {
     <BrowserRouter>
       <div className="Content flex min-h-screen flex-col">
         <Header/>
-        <main className="flex flex-grow ">
+
+       
+=======
+        <main className="flex flex-grow">
+
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/painel" element={
