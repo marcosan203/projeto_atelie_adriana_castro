@@ -15,15 +15,24 @@ const Header = () => {
       <header className="flex flex-col h-[120px] w-full">
         <div className="flex-1 w-full bg-black flex px-[130px]">
           <div className="flex-1 flex justify-start">
-            <nav>
-              <a href="">
-                <img />
+            <nav className="flex items-center gap-4">
+              <a href="" className="inline-flex items-center justify-center p-1 hover:opacity-80 transition">
+                <img 
+                src="/icones/instagram.png" 
+                alt="Instagram" 
+                className="h-8 w-8 hover:opacity-75 transition-all" />
               </a>
               <a href="">
-                <img />
+                <img 
+                src="/icones/tiktok.png" 
+                alt="Tiktok" 
+                className="h-8 w-8 hover:opacity-75 transition-all" />
               </a>
               <a href="">
-                <img />
+                <img 
+                src="/icones/facebook.png" 
+                alt="Instagram" 
+                className="h-8 w-8 hover:opacity-75 transition-all" />
               </a>
             </nav>
           </div>
