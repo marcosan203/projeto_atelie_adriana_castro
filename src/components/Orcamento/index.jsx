@@ -8,7 +8,7 @@ function Orcamento() {
     return (
         <section className="min-h-screen bg-[#000000] flex items-center justify-center p-6">
       
-          <div className="bg-[#111010] max-w-4xl w-full rounded-2xl border border-[#111010] p-8 text-[#d9d9d9] space-y-8">
+          <div className="bg-[#000000] max-w-4xl w-full rounded-2xl border border-[#000000] p-8 text-[#d9d9d9] space-y-8">
       
             {/* Título */}
             <div className="flex justify-between flex-wrap gap-4">
