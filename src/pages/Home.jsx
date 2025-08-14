@@ -20,11 +20,6 @@ function Home() {
             <div className="w-full px-[100px]">
                 <NossaHistoria />
             </div>
-
-            <div className="w-full px-[100px]">
-                <Orcamento />
-            </div>
-
             <div className="w-full px-[100px]">
                 <Perguntas_Respostas />
             </div>
