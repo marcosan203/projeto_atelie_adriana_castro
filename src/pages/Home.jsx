@@ -2,8 +2,14 @@
 import Banner from "../components/Banner";
 import NossaHistoria from "../components/NossaHistoria";
 import Orcamento from "../components/Orcamento";
+
 import Perguntas_Respostas from "../components/Perguntas_Respostas/index.jsx"
 import Galeria from "../components/Galeria";
+
+import Perguntas_Respostas from "../components/Perguntas_Respostas"
+
+import Galeria from "../components/Galeria";
+
 
 
 function Home() {
@@ -18,14 +24,17 @@ function Home() {
             <NossaHistoria />
             </div>
 
-            <div className="w-full px-[100px]">
-                <Orcamento />
-            </div>
+
 
             <div className="w-full px-[100px]">
                 <Perguntas_Respostas />
             </div>
             
+
+            <div className="w-full px-[100px]">
+                <Perguntas_Respostas />
+            </div>
+
             <div className="w-full px-[100px]">
                 <Galeria />
             </div>
