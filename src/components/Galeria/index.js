@@ -19,10 +19,7 @@ function Galeria() {
 
     return (
         <section className='areaCards'>
-
             <div className='cards'>
-
-
                 <div className='card'>
                     <img className='cardPrincipal' src="galeria_fotos/vestidoVermelho/vestidoVermelho.png" />
                 </div>
@@ -45,17 +42,15 @@ function Galeria() {
                             <span className="galeria-texto">Teste</span>
                         </div>
                     </div>
-
                 </div>
-
             </div>
-
 
             <div className='cards'>
                 <div className='cardsLinha'>
                     <img className='cardImagem' src='galeria_fotos/vestidoEstampado/vestidoEstampado.png' />
                     <img className='cardImagem' src='galeria_fotos/vestidoTubinhoPreto/vestidoTubinhoPreto.png' />
-
+                </div>
+                
                 <div className='cardPrincipal'>
                     <Cards
                         imagem={objCards[0].imagem}
@@ -133,9 +128,6 @@ function Galeria() {
                     <img className='cardImagem' src='galeria_fotos/camisolaRoseVintage/camisolaRoseVintage.jpg' />
                 </div>
             </div>
-
-
-
         </section>
     )
 }
