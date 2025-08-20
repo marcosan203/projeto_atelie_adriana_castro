@@ -1,50 +1,50 @@
+import React from 'react';
 import Brand from '../Brand';
-import './style.css'
 
 function NossaHistoria() {
-    return(
-        <section className="Nossahistoria atelie-nossa-historia-img rounded-lg relative w-full h-[850px] mb-[50px]">
-           <Brand />
-
-        <div className="relative w-full h-[850px] mb-[50px]">
-      {/* Imagem de fundo */}
-      <div className="atelie-nossa-historia-img absolute inset-0 rounded-lg bg-cover bg-center" />
+  return (
+    <section className="relative w-full h-[850px] mb-[50px] rounded-lg">
       
-      {/* Container principal */}
+      {/* Brand no topo */}
+      <div>
+        <Brand />
+      </div>   
+
+      {/* Imagem de fundo */}
+      <div
+        className="absolute inset-0 rounded-lg bg-cover bg-center z-0"
+      />
+      <div
+        className="absolute inset-0 rounded-lg bg-cover bg-center z-0 "
+        style={{ backgroundImage: "url('/imagens_usadas_na_pagina/image 2.png')" }}
+      />
+
+      {/* Container do texto */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center px-8">
-        {/* Texto centralizado como na imagem */}
-        <div className="bg-white bg-opacity-90 p-10 rounded-lg max-w-2xl w-full shadow-lg">
-          {/* Título dividido em duas linhas */}
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold tracking-tight">Ateliê</h1>
-            <h2 className="text-4xl font-bold mt-2">Adriana Castro</h2>
-          </div>
-          
-          {/* Parágrafos com espaçamento e alinhamento */}
-          <div className="text-lg space-y-6">
-            <p className="text-justify leading-relaxed">
-              Tudo começou quando eu percebi que muitas pessoas ao meu redor tinham roupas favoritas, 
-              mas acabavam deixando de usar por pequenos defeitos, como um rasgo ou um botão faltando.
+        <div className="p-10 rounded-lg max-w-2xl w-full shadow-lg">
+          <div className="font-glacial text-lg leading-loose text-white max-w-md absolute top-1/4 right-12">
+            
+            <p className="mt-2">
+            <span className="text-black">Tudo começou quando</span> eu percebi que muitas pessoas ao <span className="text-black">meu redor tinham</span> roupas favoritas, mas acabavam <span className="text-black">deixando de</span> usar por pequenos defeitos, como um rasgo <span className="text-black">ou um botão</span> faltando.
             </p>
-            <p className="text-justify leading-relaxed">
-              Eu sempre gostei de costurar, então pensei: por que não ajudar essas pessoas a restaurar 
-              suas roupas e ainda dar um toque especial nelas? Foi assim que nasceu a ideia do meu 
-              ateliê de costura.
+
+            <p className="mt-2">
+            <span className="text-black">Eu sempre gostei</span> de costurar, então pensei: por que não <span className="text-black">ajudar essas</span> pessoas a restaurar suas roupas e ainda dar <span className="text-black">um toque especial</span> nelas? Foi assim que nasceu a ideia <span className="text-black">do meu ateliê</span> de costura.
             </p>
-            <p className="text-justify leading-relaxed">
-              Queria criar um lugar onde cada peça recebesse cuidado e atenção, fazendo com que os 
-              clientes se sentissem felizes de usar suas roupas de novo, como novas.
+
+            <p className="mt-2">
+            <span className="text-black">Queria criar</span> um lugar onde cada peça recebesse <span className="text-black">cuidado e atenção,</span> fazendo com que os clientes se <span className="text-black">sentissem</span> felizes de usar suas roupas de novo, como <span className="text-black">novas.</span>
             </p>
-            <p className="text-justify leading-relaxed">
-              Com muito carinho e dedicação, meu ateliê foi ganhando vida, e hoje é um espaço de 
-              transformação e carinho para as roupas e para as pessoas.
+
+            <p className="mt-4">
+              Com muito carinho e dedicação, meu ateliê foi ganhando vida, e hoje é um espaço de transformação e carinho para as roupas e para as pessoas.
             </p>
+
           </div>
         </div>
       </div>
-    </div>
-        </section>
-    )
+    </section>
+  );
 }
 
 export default NossaHistoria;
