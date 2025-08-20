@@ -13,7 +13,8 @@ module.exports = {
             xl: "1280px",
         },
         fontFamily: {
-            awesome: "FontAwesome"
+            awesome: "FontAwesome",
+            glacial: ['"Glacial Indifference"', 'sans-serif'],
         },
         extend: {
             colors: {

@@ -5,3 +5,31 @@
 * {
   box-sizing: border-box;
 }
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('/public/fonts/GlacialIndifference-Regular.eot');
+    src: url('/public/fonts/GlacialIndifference-Regular.eot?#iefix') format('embedded-opentype'),
+        url('/public/fonts/GlacialIndifference-Regular.woff2') format('woff2'),
+        url('/public/fonts/GlacialIndifference-Regular.woff') format('woff'),
+        url('/public/fonts/GlacialIndifference-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: url('/public/fonts/GlacialIndifference-Bold.eot');
+    src: url('/public/fonts/GlacialIndifference-Bold.eot?#iefix') format('embedded-opentype'),
+        url('/public/fonts/GlacialIndifference-Bold.woff2') format('woff2'),
+        url('/public/fonts/GlacialIndifference-Bold.woff') format('woff'),
+        url('/public/fonts/GlacialIndifference-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+  font-family: 'Glacial Indifference';
+}
