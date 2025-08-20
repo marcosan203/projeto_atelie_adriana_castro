@@ -4,7 +4,7 @@ import './style.css'
 
 function Banner() {
     return(
-        <section className="Banner atelie-banner-img rounded-lg relative w-full h-[850px] mb-[50px]">
+        <section className="Banner atelie-banner-img rounded-lg relative w-full h-[850px] mb-[100px]">
            <Brand />
         </section>
     )

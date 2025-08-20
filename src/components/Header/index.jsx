@@ -22,16 +22,16 @@ const Header = () => {
                 alt="Instagram" 
                 className="h-8 w-8 hover:opacity-75 transition-all" />
               </a>
-              <a href="">
+              <a href="" className="inline-flex items-center justify-center p-1 hover:opacity-80 transition">
                 <img 
                 src="/icones/tiktok.png" 
                 alt="Tiktok" 
                 className="h-8 w-8 hover:opacity-75 transition-all" />
               </a>
-              <a href="">
+              <a href="" className="inline-flex items-center justify-center p-1 hover:opacity-80 transition">
                 <img 
                 src="/icones/facebook.png" 
-                alt="Instagram" 
+                alt="Facebook" 
                 className="h-8 w-8 hover:opacity-75 transition-all" />
               </a>
             </nav>
