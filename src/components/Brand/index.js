@@ -4,7 +4,7 @@ function Brand() {
             <h2 className='text-black'>
                 Ateliê
             </h2>
-            <h2 className='text-white '>
+            <h2 className='text-white' style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>
                 Adriana
                 <br />
                 Castro

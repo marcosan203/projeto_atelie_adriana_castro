@@ -16,9 +16,7 @@ function App() {
     <BrowserRouter>
       <div className="Content flex min-h-screen flex-col">
         <Header/>
-
-       
-=======
+        
         <main className="flex flex-grow">
 
           <Routes>
