@@ -37,6 +37,8 @@ function Home() {
                 <Galeria />
             </div>
             <Orcamento />
+            <div className="w-full px-[100px]">
+            </div>
 
 
         </div>

@@ -1,11 +1,70 @@
+import React from 'react';
 import { Link } from "react-router-dom";
+import Brand from '../Brand';
 
 function Footer() {
     return(
-        <footer className="py-[50px] px-[100px]">
-            <h1> Meu footer</h1>
-            <Link to="/"> Voltar para Home </Link>
-        </footer>
+        <footer className="bg-black text-white relative px-[100px] py-[50px] font-glacial text-sm">
+        <div className='bg-white bg-contain h-48'>
+
+        </div>
+
+        <div className="flex flex-col md:flex-row justify-between gap-10">
+
+        {/* Coluna esquerda */}
+        <div className="flex flex-col gap-6">
+          <Brand />
+
+          <div className="text-xs text-gray-300">
+            <p>Ateliê Adriana Castro</p>
+            <p>Um espaço para você saber onde qualidade é construída.</p>
+          </div>
+
+          <p className="text-xs mt-4 text-gray-500">© 2025 Direitos autorais</p>
+        </div>
+
+        {/* Coluna direita */}
+        <div className="flex gap-[80px]">
+          
+          {/* Menu */}
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold mb-2">Menu</h3>
+            <Link to="/nossa-historia" className="hover:underline">Nossa História</Link>
+            <Link to="/servicos" className="hover:underline">Serviços</Link>
+            <Link to="/perguntas" className="hover:underline">Perguntas</Link>
+            <Link to="/orcamentos" className="hover:underline">Orçamentos</Link>
+            <Link to="/galeria" className="hover:underline">Galeria</Link>
+          </div>
+
+          {/* Social */}
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold mb-2">Social</h3>
+
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <img src="/icones/instagram.png" alt="Instagram" className="h-4" />
+              Instagram
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <img src="/icones/facebook.png" alt="Facebook" className="h-4" />
+              Facebook
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <img src="/icones/tiktok.png" alt="TikTok" className="h-4" />
+              TikTok
+            </a>
+            <a href="https://wa.me/SEUNUMERO" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <img src="/icones/whatsapp.png" alt="Whatsapp" className="h-4" />
+              Whatsapp
+            </a>
+            <a href="mailto:seuemail@exemplo.com" className="flex items-center gap-2">
+              <img src="/icones/carta.png" alt="E-mail" className="h-4" />
+              E-mail
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </footer>
     )
 }
 export default Footer;

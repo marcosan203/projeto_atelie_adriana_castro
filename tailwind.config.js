@@ -2,7 +2,8 @@ module.exports = {
     content: [
         './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
         './src/components/**/*.{js,ts,tsx,jsx,mdx}',
-        './src/app/**/*.{js,ts,tsx,jsx,mdx}'
+        './src/app/**/*.{js,ts,tsx,jsx,mdx}',
+        './src/**/*.{js,ts,jsx,tsx,html}'
     ],
     theme: {
         screens: {
