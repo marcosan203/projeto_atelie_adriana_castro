@@ -1,52 +1,48 @@
-
 .cards {
-    display: flex;
-    width: 500px;
-    flex-direction: column;
-
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  height: auto;
 }
 
 .cardsLinha {
-    display: flex;
+  display: flex;
 }
 
 .cardPrincipal {
-    border-radius: 3%;
-    width: 500px;
-    height: auto;
-    padding: 5px;
+  border-radius: 3%;
+  width: 500px;
+  height: auto;
+  padding: 5px;
 }
 
 .cardImagem {
-    border-radius: 3%;
-    width: 250px;
-    height: auto;
-    padding: 5px;
- 
+  border-radius: 3%;
+  width: 250px;
+  height: auto;
+  padding: 5px;
+
 }
 
 .card:hover {
-    opacity: 30%;
+  opacity: 30%;
 }
 
 .areaCards {
-    display: flex;
-    padding: 5px;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 100px;
 }
 
 .haleria_texto {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 1px 1px 3px black;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 3px black;
 }
 
 
-
-
-
-=======
 .areaCards {
   display: flex;
   padding: 5px;
@@ -59,6 +55,7 @@
   height: auto;
   flex-direction: column;
   margin: 1%;
+  padding: 2px;
 }
 
 .cardPrincipal {
@@ -78,14 +75,16 @@
 
 .imagemPrimaria {
   width: 600px;
-  height: 100%;
+  height: 450px;
   border-radius: 6%;
+  margin: 5px;
 }
 
 .imagemSecundaria {
-  width: 350px;
-  height: 100%;
+  width: 450px;
+  height: 350px;
   border-radius: 6%;
+  margin: 5px;
 }
 
 .cardImagem {
@@ -93,68 +92,4 @@
   width: 250px;
   height: auto;
 
-}
-
-
-
-
-.haleria_texto {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  text-shadow: 1px 1px 3px black;
-}
-
-.galeria-item {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-}
-
-.galeria-imagem {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
-
-.galeria-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-
-  background-color: rgba(0, 0, 0, 0); /* opcional: escurecer o fundo */
-
-  background-color: rgba(0, 0, 0, 0); 
-
-}
-
-.galeria-texto {
-  color: white;
-  font-size: 16px;
-
-  font-weight: bold;
-
-
-  text-align: center;
-
-  color: black;
-}
-
-.galeria-item:hover .galeria-imagem {
-  opacity: 0.2;
-}
-
-.galeria-item:hover .galeria-overlay {
-  opacity: 1;
 }

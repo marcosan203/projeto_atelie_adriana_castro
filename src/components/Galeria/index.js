@@ -1,135 +1,76 @@
-import './styles.css';
-import Cards from '../Cards';
-function Galeria() {
+/**
+ * useState:
+ * Hook que permite criar e controlar o estado local dentro de um componente funcional.
+ * Ele retorna um valor atual e uma função para atualizá-lo.
+ * 
+ * useMemo:
+ * Hook que memoriza valores calculados, evitando recalcular algo caro (ou irrelevante)
+ * se as dependências não mudarem.Muito útil para otimizar desempenho em listas ou filtros, por exemplo.
+ * 
+ * useCallback:
+ * Hook que memoriza funções, retornando sempre a mesma instância enquanto as dependências não
+ * mudarem.Isso evita re-renderizações desnecessárias em componentes filhos que recebem essas funções via props.
+ */
 
-    const objCards = [
-        { imagem: 'galeria_fotos/vestidoVermelho/vestidoVermelho.png', tamanho: 'graimagemPrimariande', texto: 'Vestido vermelho marsala em malha macia, com alças largas, corte godê e amarração nas costas, une conforto e elegância para ocasiões especiais.' },
-        { imagem: 'galeria_fotos/macaquinhoTropicalEstampado/macaquinhoTropicalEstampado.jpg', tamanho: 'imagemSecundaria', texto: 'Macaquinho leve com estampa tropical vibrante, cintura marcada e alças largas,combina conforto e estilo, ideal para dias quentes, passeios e eventos..' },
-        { imagem: 'galeria_fotos/conjuntoEleganciaUrbana/conjuntoEleganciaUrbana.jpg', tamanho: 'imagemSecundaria', texto: ' Conjunto com blusa rose de manga longa e gola alta, e mini saia branca com detalhes  dourados, une sofisticação e modernidade para ocasiões casuais chiques.' },
-        
-        { imagem: 'galeria_fotos/vestidoEstampado/vestidoEstampado.png', tamanho: 'imagemSecundaria', texto: 'Vestido sem mangas em malha estampada preto e branco, caimento fluido e cinto ajustado, une conforto e estilo para passeios e encontros casuais.' },
-        { imagem: 'galeria_fotos/vestidoTubinhoPreto/vestidoTubinhoPreto.png', tamanho: 'imagemSecundaria', texto: ' Vestido tubinho preto com gola alta, recorte e fenda frontal, valoriza a silhueta com elegância, ideal para eventos especiais e ocasiões sofisticadas.' },
-        { imagem: 'galeria_fotos/conjunto/conjunto.png', tamanho: 'imagemPrimaria', texto: 'Conjunto com blusa rose de manga longa e gola alta, e mini saia branca com detalhes dourados, une sofisticação e modernidade para ocasiões casuais chiques.' },
-        
-        { imagem: 'galeria_fotos/vestidoJuninoElegante/vestidoJuninoElegante.png', tamanho: 'imagemPrimaria', texto: 'Vestido sob medida em xadrez lilás com cetim, renda e mangas bufantes, combina romantismo e sofisticação, perfeito para festas e ensaios fotográficos.' },
-        { imagem: 'galeria_fotos/camisolaBrancaComRenda/camisolaBrancaComRenda.png', tamanho: 'imagemSecundaria', texto: 'Camisola branca com alças finas, renda delicada e tecido leve, une conforto e sensualidade, ideal para noites especiais ou dormir com frescor.' },
-        { imagem: 'galeria_fotos/camisolaRoseVintage/camisolaRoseVintage.jpg', tamanho: 'imagemSecundaria', texto: ' Camisola rosé com toque acetinado, decote em renda e alças largas drapeadas, mistura romantismo e ousadia, ideal para noites especiais ou dormir com charme.' },
-    ];
-    console.log(objCards[0]);
+// Componente principal da galeria com modal
+/**
+* Componente principal que renderiza uma galeria de imagens com suporte a modal de detalhes.
+* Utiliza `useState`, `useCallback` e `useMemo` para controlar o estado da seleção e exibição.
+*
+* @component
+* @param {Object} props - Propriedades do componente.
+* @param {Array<Object>} props.itens - Lista de itens a serem exibidos na galeria.
+* @param {string} props.itens[].id - Identificador do item.
+* @param {string} props.itens[].titulo - Título do item.
+* @param {string} props.itens[].src - URL da imagem.
+* @param {string} props.itens[].alt - Texto alternativo da imagem.
+* @param {string} props.itens[].descricao - Texto descritivo do item.
+* @returns {JSX.Element} Galeria de imagens com modal de visualização.
+*/
+
+import { useMemo, useState, useCallback } from "react";
+
+import IMAGENS from "../../data/itensGaleria";
+import ItemCard from "../../components/Cards";
+import DetalhesModal from "../../components/DetalhesModal";
+
+// Componente principal da galeria com modal
+export default function GaleriaComModal({ itens = IMAGENS }) {
+    const [selecionado, setSelecionado] = useState(null); // Item atualmente selecionado
+    const [aberto, setAberto] = useState(false); // Estado do modal (aberto ou fechado)
+
+    // Identifica a posição do item selecionado na lista
+    const indexAtual = useMemo(() => {
+        if (!selecionado) return -1;
+        return itens.findIndex((i) => i.id === selecionado.id);
+    }, [selecionado, itens]);
+
+    // Abre o modal com o item escolhido
+    const abrir = useCallback((item) => {
+        setSelecionado(item);
+        setAberto(true);
+    }, []);
+
+    // Fecha o modal
+    const fechar = useCallback(() => setAberto(false), []);
 
     return (
-        <section className='areaCards'>
-            <div className='cards'>
-                <div className='card'>
-                    <img className='cardPrincipal' src="galeria_fotos/vestidoVermelho/vestidoVermelho.png" />
-                </div>
-                <div className='cardsLinha'>
-                    <div className="galeria-item">
-                        <img src='galeria_fotos/macaquinhoTropicalEstampado/macaquinhoTropicalEstampado.jpg' alt='' className="galeria-imagem" />
-                        <div className="galeria-overlay">
-                            <span className="galeria-texto">
-                                Macaquinho leve e moderno com estampa tropical vibrante em azul, 
-                                rosa e preto. Possui modelagem ajustada, cintura marcada,
-                                 alças largas e botões frontais brancos. Confortável, 
-                                 feminino e versátil, ideal para dias quentes, passeios e eventos casuais.
-                            </span>
-                        </div>
-                    </div>
+        <div className="mx-auto max-w-6xl p-4">
+            <h1 className="mb-4 text-2xl font-bold">Galeria</h1>
 
-                    <div className="galeria-item">
-                        <img src='galeria_fotos/conjuntoEleganciaUrbana/conjuntoEleganciaUrbana.jpg' alt='' className="galeria-imagem" />
-                        <div className="galeria-overlay">
-                            <span className="galeria-texto">Teste</span>
-                        </div>
-                    </div>
-                </div>
+            {/* Grid da galeria com todas as imagens */}
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                {itens.map((item) => (
+                    <ItemCard key={item.id} item={item} onClick={abrir} />
+                ))}
             </div>
 
-            <div className='cards'>
-                <div className='cardsLinha'>
-                    <img className='cardImagem' src='galeria_fotos/vestidoEstampado/vestidoEstampado.png' />
-                    <img className='cardImagem' src='galeria_fotos/vestidoTubinhoPreto/vestidoTubinhoPreto.png' />
-                </div>
-                
-                <div className='cardPrincipal'>
-                    <Cards
-                        imagem={objCards[0].imagem}
-                        tamanho={'imagemPrimaria'}
-                        texto={objCards[0].texto}
-                    />
-                </div>
-
-                <div className='cardsLinha'>
-                    <div className='cardSecundario'>
-                        <Cards
-                            imagem={objCards[1].imagem}
-                            tamanho={'imagemSecundaria'}
-                            texto={objCards[1].texto}
-                        />
-                    </div>
-                    <div className='cardSecundario'></div>
-                    <Cards
-                        imagem={objCards[2].imagem}
-                        tamanho={'imagemSecundaria'}
-                        texto={objCards[2].texto}
-                    />
-                </div>
-            </div>
-
-
-            <div className='cards'>
-                <div className='cardsLinha'>
-                    <Cards
-                        imagem={objCards[3].imagem}
-                        tamanho={objCards[3].tamanho}
-                        texto={objCards[3].texto}
-                    />
-                    <Cards
-                        imagem={objCards[4].imagem}
-                        tamanho={objCards[4].tamanho}
-                        texto={objCards[4].texto}
-                    />
-                </div>
-                <Cards
-                    imagem={objCards[5].imagem}
-                    tamanho={objCards[5].tamanho}
-                    texto={objCards[5].texto}
-                />
-            </div>
-
-            <div className='cards'>
-                <Cards
-                    imagem={objCards[6].imagem}
-                    tamanho={objCards[6].tamanho}
-                    texto={objCards[6].texto}
-                />
-
-                <div className='cardsLinha'>
-                    <Cards
-                        imagem={objCards[7].imagem}
-                        tamanho={objCards[7].tamanho}
-                        texto={objCards[7].texto}
-                    />
-
-                    <Cards
-                        imagem={objCards[8].imagem}
-                        tamanho={objCards[8].tamanho}
-                        texto={objCards[8].texto}
-                    />
-
-                </div>
-                <img className='cardPrincipal' src="galeria_fotos/conjunto/conjunto.png" />
-            </div>
-
-            <div className='cards'>
-                <img className='cardPrincipal' src='galeria_fotos/vestidoJuninoElegante/vestidoJuninoElegante.png' />
-                <div className='cardsLinha'>
-                    <img className='cardImagem' src='galeria_fotos/camisolaBrancaComRenda/camisolaBrancaComRenda.png' />
-                    <img className='cardImagem' src='galeria_fotos/camisolaRoseVintage/camisolaRoseVintage.jpg' />
-                </div>
-            </div>
-        </section>
-    )
+            {/* Modal que aparece ao clicar em uma imagem */}
+            <DetalhesModal
+                aberto={aberto}
+                item={selecionado}
+                onClose={fechar}
+            />
+        </div>
+    );
 }
-
-export default Galeria;

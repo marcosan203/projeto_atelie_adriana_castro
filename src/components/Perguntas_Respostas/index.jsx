@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import BrandBlack from "../BrandBlack";
-
-
+ 
+ 
 export default function FAQ() {
   const faqs = [
     {
@@ -26,7 +26,7 @@ export default function FAQ() {
         "Fazemos sim! Criamos vestidos para ocasiões especiais, com provas agendadas e acompanhamento de todo o processo.",
     },
   ];
-
+ 
   const faqsDireita = [
     {
       pergunta: "Posso levar uma roupa como modelo para fazer outra igual?",
@@ -49,19 +49,26 @@ export default function FAQ() {
         "Para encomendas ou provas, sim. Mas para ajustes simples, atendemos por ordem de chegada durante o horário de funcionamento.",
     },
   ];
-
+ 
   const [abertoEsquerda, setAbertoEsquerda] = useState(null);
   const [abertoDireita, setAbertoDireita] = useState(null);
-
+ 
   return (
-    <section className="rounded-lg relative w-full h-[850px] mb-[50px]">
+    <section className="">
+      {/* Perguntas */}
+      <div className="w-full flex justify-end px-6 mt-5">
+        <div className=" text-black px-4 py-2 rounded-lg cursor-pointer hover:bg-gray-800">
+          Perguntas
+        </div>
+      </div>
+ 
       <div className=" rounded-lg relative w-full h-[-50px] mb-[50px] left-1">
         <BrandBlack />
       </div>
-
+ 
       <div className="min-h-screen bg-[#ffffff] flex flex-col items-center justify-center px-6 py-16">
-        <div className="max-w-6xl w-full">
-
+        <div className="max-w-8xl w-full">
+ 
           {/* Grid de perguntas em duas colunas */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Coluna da esquerda */}
@@ -85,7 +92,7 @@ export default function FAQ() {
                 </div>
               ))}
             </div>
-
+ 
             {/* Coluna da direita */}
             <div className="space-y-4">
               {faqsDireita.map((item, index) => (
@@ -113,7 +120,7 @@ export default function FAQ() {
     </section>
   );
 }
-
+ 
 /*
 ✔ Layout atualizado para seguir o design do PDF: Nome "Ateliê Adriana Castro" alinhado à esquerda no topo.
 ✔ "Perguntas Frequentes" centralizado logo abaixo do nome.
