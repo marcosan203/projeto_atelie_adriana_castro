@@ -1,0 +1,47 @@
+.carrossel-fila {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 90%; /* ocupa 90% da largura da tela */
+}
+
+.pista {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.item {
+  height: 280px; /* altura padrão */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nav {
+  background: rgba(255,255,255,0.9);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  z-index: 5;
+}

@@ -1,120 +1,255 @@
-/* 1) Ajuste fino do layout em um único lugar */
-.carrossel-wrap {
-  --largura-card: 280px;  /* largura dos cartões */
-  --altura-card: 420px;   /* altura dos cartões  */
-  --offset: 220px;        /* quanto os cartões laterais "saem" do centro */
-  --raio: 22px;           /* bordas arredondadas  */
+/* Estilos para a página de demonstração */
+.body-carrossel {
+  font-family: 'Inter', sans-serif;
 
-  position: relative;
-  width: 100%;
-  max-width: 980px;       /* largura total do carrossel */
-  height: var(--altura-card);
-  margin: 40px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Evita barras de rolagem indesejadas */
 }
 
-/* 2) Container interno onde os cards "flutuam" absolutos */
+/* Container principal do carrossel */
+.carrossel-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 400px;
+  /* Altura fixa para o palco 3D */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* A propriedade 'perspective' é a chave para o efeito 3D.
+                       Ela define a que "distância" o usuário está do palco. */
+  perspective: 1200px;
+}
+
+/* Container dos cards, que será posicionado no espaço 3D */
 .cards {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 280px;
+  /* Largura do card ativo */
+  height: 360px;
+  /* Altura do card ativo */
+  /* Habilita o contexto 3D para que os filhos (cards) 
+                       possam ser posicionados no espaço. */
+  transform-style: preserve-3d;
 }
 
-/* 3) Estilo base do cartão (posição absoluta no centro) */
+/* Estilo base para cada card */
 .card {
   position: absolute;
   top: 0;
-  left: 50%;
-  width: var(--largura-card);
-  height: var(--altura-card);
-  transform: translateX(-50%) scale(0.88); /* posição base: centro menorzinho */
-  transform-origin: center;
-  border-radius: var(--raio);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 18px 40px rgba(0,0,0,.18);
-  transition: transform .45s ease, opacity .45s ease, filter .45s ease, z-index .45s ease;
-  opacity: 0;           /* invisível por padrão */
-  z-index: 0;
-  cursor: default;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  cursor: pointer;
+  /* Transição suave para as propriedades de transform e opacidade */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  /* Evita que o verso do card apareça durante a rotação */
+  backface-visibility: hidden;
+}
+
+/* --- Posições dos cards no espaço 3D --- */
+
+/* Card central (ativo) */
+.card.ativo {
+  /* Fica na frente, sem rotação e totalmente visível */
+  transform: translateZ(0);
+  opacity: 1;
+  z-index: 3;
+}
+
+/* Card à esquerda do ativo */
+.card.esquerda {
+  /* Movido para a esquerda, para trás e rotacionado no eixo Y */
+  transform: translateX(-180px) translateZ(-120px) rotateY(45deg);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+/* Card à direita do ativo */
+.card.direita {
+  /* Movido para a direita, para trás e rotacionado no eixo Y */
+  transform: translateX(180px) translateZ(-120px) rotateY(-45deg);
+  opacity: 0.7;
+  z-index: 2;
+}
+
+/* Cards ocultos (mais distantes) */
+.card.oculto-esquerda {
+  /* Movido mais para a esquerda, mais para trás e mais rotacionado */
+  transform: translateX(-360px) translateZ(-400px) rotateY(70deg);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card.oculto-direita {
+  /* Movido mais para a direita, mais para trás e mais rotacionado */
+  transform: translateX(360px) translateZ(-400px) rotateY(-70deg);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  filter: saturate(1.05);
 }
 
-/* Título no canto superior esquerdo */
 .card .titulo {
   position: absolute;
-  top: 14px;
-  left: 16px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
   color: #fff;
-  font-size: 22px;
-  font-weight: 700;
-  text-shadow: 0 2px 12px rgba(0,0,0,.65);
-  letter-spacing: .3px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-/* 4) Posições calculadas no JS: ativo (centro), esquerda e direita */
-.card.ativo {
-  transform: translateX(-50%) scale(1);
-  opacity: 1;
-  z-index: 3;
-  filter: none;
-}
-
-.card.esquerda {
-  transform: translateX(calc(-50% - var(--offset))) scale(.94);
-  opacity: .7;
-  z-index: 2;
-  cursor: pointer;      /* pode clicar para ir ao anterior */
-  filter: blur(.2px);
-}
-
-.card.direita {
-  transform: translateX(calc(-50% + var(--offset))) scale(.94);
-  opacity: .7;
-  z-index: 2;
-  cursor: pointer;      /* pode clicar para ir ao próximo */
-  filter: blur(.2px);
-}
-
-.card.oculto {
-  opacity: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* 5) Botões de navegação */
+/* Botões de navegação */
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
   width: 44px;
   height: 44px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255,255,255,.92);
-  font-size: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
   cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-.seta-esq { left: 8px; }
-.seta-dir { right: 8px; }
+.nav:hover {
+  transform: translateY(-50%) scale(1.1);
+  background-color: #f8f8f8;
+}
 
-/* 6) Responsivo: diminui o espaçamento lateral em telas menores */
-@media (max-width: 860px) {
-  .carrossel-wrap { --offset: 180px; --largura-card: 240px; --altura-card: 360px; }
+.nav.seta-esq {
+  left: 10px;
 }
-@media (max-width: 640px) {
-  .carrossel-wrap { --offset: 140px; --largura-card: 220px; --altura-card: 320px; }
+
+.nav.seta-dir {
+  right: 10px;
 }
-@media (max-width: 520px) {
-  /* em telas bem pequenas, só mostra o card central (laterais ficam fora) */
-  .carrossel-wrap { --offset: 999px; --largura-card: 100%; --altura-card: 280px; }
-  .seta-esq, .seta-dir { display: none; } /* opcional esconder setas no mobile */
+
+/* Estilos do Modal (com pequenos ajustes de design) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-conteudo {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  z-index: 1001;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .modal-conteudo {
+    flex-direction: row;
+  }
+}
+
+.modal-conteudo-img {
+  flex: 1;
+  min-width: 250px;
+}
+
+.modal-conteudo-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.modal-conteudo-informacao {
+  flex: 2;
+}
+
+.modal-conteudo-informacao h2 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #333;
+}
+
+.modal-conteudo-informacao p {
+  line-height: 1.6;
+  color: #555;
+}
+
+.modal-conteudo-informacao ul {
+  padding-left: 20px;
+  color: #555;
+}
+
+.modal-conteudo-informacao li {
+  margin-bottom: 8px;
+}
+
+.btn-fechar {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-fechar:hover {
+  background-color: #555;
 }

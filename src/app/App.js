@@ -8,15 +8,12 @@ import Painel from "../pages/Painel";
 import Login from "../pages/Login";
 import PrivateRoute from "../components/Auth";
 
-
 function App() {
-  
-  
   return (
     <BrowserRouter>
       <div className="Content flex min-h-screen flex-col">
-        <Header/>
-        
+        <Header />
+
         <main className="flex flex-grow">
 
           <Routes>
