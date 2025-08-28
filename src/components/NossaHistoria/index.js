@@ -12,7 +12,7 @@ function NossaHistoria() {
 
       {/* Container do texto */}
       <div className="h-full flex flex-col justify-center items-end">
-        <div className="font-glacial bg-black/40 text-2xl leading-normal text-white w-[30rem] mr-[8rem] p-4 rounded-lg">
+        <div className="font-glacial bg-black/30 text-2xl leading-normal text-white w-[30rem] mr-[8rem] p-4 rounded-lg">
           <p className="mb-2">
             Tudo começou quando eu percebi que muitas pessoas ao meu redor tinham roupas favoritas, mas acabavam deixando de usar por pequenos defeitos, como um rasgo ou um botão faltando.
           </p>
